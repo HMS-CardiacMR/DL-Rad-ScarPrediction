@@ -63,8 +63,10 @@ def excel_reader(excel_file,sheet_name):
     names = sheet.col_values(1)[1:]
     return names,ids
 
-positive = scipy.io.loadmat('../lge_positive_cine_data_dummy_fname.mat')
-negative = scipy.io.loadmat('../lge_negative_cine_data_dummy_fname.mat')
+positive = scipy.io.loadmat('../lge_positive_cine_data_dummy_fname.mat') # matlab workspace/data file containing a list of matrices;
+#  one for each patient. The patient matrix is of size num_slices x W x H x 2, 
+#  where the last dimension contains two images: cine image and myocardium mask in this image.
+negative = scipy.io.loadmat('../lge_negative_cine_data_dummy_fname.mat') # same as above
 
 negative_names, negative_ids = excel_reader(NEGATIVE_EXCEL_PATH, 'dummy_sheet')
 negative_names = [x for cnt, x in enumerate(negative_names) if negative_ids[cnt] in neg_ids]
