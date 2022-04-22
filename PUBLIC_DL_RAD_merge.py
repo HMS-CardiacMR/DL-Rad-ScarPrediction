@@ -13,10 +13,6 @@ random.seed(init_rs)
 
 from sklearn.feature_selection import SelectFromModel
 from sklearn.linear_model import LogisticRegression, LassoCV
-from sklearn.ensemble import GradientBoostingClassifier, StackingClassifier, RandomForestClassifier
-from sklearn.svm import SVC
-
-from sklearn.neural_network import MLPClassifier
 from sklearn import metrics
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
