@@ -12,14 +12,7 @@ from random import shuffle
 
 import random
 
-# Ahmed: 2020-12-16: has conflict with tuner code.... Not working
 import os
-# from vis.visualization import visualize_saliency, visualize_cam
-# from vis.utils import utils
-# from keras import activations
-#################################################
-# Note that, during export, we export testing, training, and validation datasets as all positive patients first then negative patients
-# If you are going to combine with Radiomics: the radiomics program shuffle them, so you need to re-order the records.
 start = time.time()
 random.seed(2020)
 
