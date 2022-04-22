@@ -1,5 +1,5 @@
 # DL-Rad-ScarPrediction
-This code is meant to provide details of the methods used to implement a combined DeepLearning-Radiomics model for identifying patients without scar using DL and Radiomics analyses of non-Gd bSSFP cine sequences.
+This code provides details of the methods used to implement a combined DeepLearning-Radiomics model for identifying patients without scar using DL and Radiomics analyses of non-Gd bSSFP cine sequences.
 
 ## Overview of code structure
 There are three sets of scripts; each serves a different model. 
@@ -17,5 +17,8 @@ PUBLIC_radiomics_utilities.py: code to implement radiomics function needed by PU
 
 ### (3) Combined Radiomics/DeepLearning scripts
 PUBLIC_DL_rad_merge.py: code to train and test radiomics model or combined DL-radiomics model
+
+## Hyperparameters and Explanation of Code:
+lge_positive_cine_data_dummy_fname.mat is a matlab data file contianing a list of matrices; each represent the data matrix of one patient. The data matrix is of size num_slices x W x H x 2, where the last dimension contains two images: cine image and myocardium mask in this imgae
 
 
