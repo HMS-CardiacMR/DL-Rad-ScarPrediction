@@ -14,7 +14,7 @@ gpus = '0'
 num_gpus = 1
 os.environ['CUDA_VISIBLE_DEVICES'] = gpus
 
-mat_data = scipy.io.loadmat('../cine_data_dummy_fname.mat')
+mat_data = scipy.io.loadmat('../cine_data_dummy_fname.mat') # matlab workspace/data file containing a list of matrices; one for each patient. The patient matrix is of size num_slices x W x H x 2, where the last dimension contains two images: cine image and myocardium mask in this image.
 data_keys = mat_data.keys()
 vol_data = []
 lbl_data = []
@@ -46,7 +46,7 @@ for i, k in enumerate(data_keys):
 params = {}
 params['binWidth'] = 1
 dataset_name = 'ext_test_bidmc100'
-storage_dfn = './all_features_' + dataset_name + '.xlsx'
+storage_dfn = './all_features_' + dataset_name + '.csv' # filename to store radiomics features for further use to develop and test the model
 extract_all_radiomics_features(all_img=vol_data[:, :, :, 0], all_mask=vol_data[:, :, :, 1], all_labels=lbl_data[:],all_pid=pid_data[:],
                                storage_dfn=storage_dfn, dataset_name=dataset_name,
                                voxelspacing=np.asarray([1., 1., 1.]), params=params, manualnormalize=False)
