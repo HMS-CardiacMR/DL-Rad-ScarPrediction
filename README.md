@@ -19,7 +19,6 @@ PUBLIC_radiomics_utilities.py: code to implement radiomics function needed by PU
 PUBLIC_DL_rad_merge.py: code to train and test radiomics model or combined DL-radiomics model
 
 ### Data Format
-There are three sets of scripts; each serves a different model. 
 This code assumes that the data/images for all patients are stored in a matlab workspace (.mat file). The variables in this workspace mat file have names = the patients identifier (e.g. name or MR). Each of these variables represent a 4D matrix of size = (N x W x H x K), where N is number of cine slices, WxH is the mimage size (128x128), and K=2 represents the last dimension of the matrix which contains two images: cine grayscale image and myocardium binary mask.
 The ground truth (patient label: LGE+ or LGE-) are stored in xls sheets containing names of LGE+ patioents and LGE- patients.
 
