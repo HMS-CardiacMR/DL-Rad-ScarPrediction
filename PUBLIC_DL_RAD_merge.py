@@ -178,24 +178,7 @@ for cross_val in range(0,5):
     """######################################################################"""
 
     ## MODEL
-    Model_Type = 'lg' # select classifier 'nn' 'gbc' 'svc' 'lg' 'ensemble'
-    if Model_Type == 'ensemble':
-        estimators = [
-            ('rf', RandomForestClassifier(max_depth=5, random_state=init_rs)),
-            ('nn', MLPClassifier(hidden_layer_sizes=(32,16,4,),max_iter=300, random_state=init_rs)),
-            ('lg', LogisticRegression(class_weight='balanced', penalty='l1', solver='liblinear', verbose=False))]
-        clf = StackingClassifier(estimators=estimators, final_estimator=LogisticRegression(class_weight='balanced'), verbose=False)
-    elif Model_Type == 'gbc':
-        clf= GradientBoostingClassifier(n_estimators=500, max_depth=5, min_samples_leaf=1, random_state=init_rs, verbose=False)
-    elif Model_Type == 'svc':
-        clf =  make_pipeline(StandardScaler(), SVC(class_weight='balanced', probability=True, random_state=init_rs, verbose=False))
-    elif Model_Type == 'lg':
-        clf = LogisticRegression(class_weight='balanced', penalty='l1', solver='liblinear', verbose= False)
-    elif Model_Type == 'nn':
-        clf = MLPClassifier(hidden_layer_sizes=(32,16,4,),max_iter=300, random_state=init_rs)
-    elif Model_Type == 'rf':
-        clf = RandomForestClassifier(max_depth=5, random_state=init_rs)
-
+    clf = LogisticRegression(class_weight='balanced', penalty='l1', solver='liblinear', verbose= False)
     clf.fit(X_dev,y_dev)
 
     y_true, y_pred = y_test, clf.predict_proba(X_test)
