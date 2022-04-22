@@ -32,7 +32,7 @@ warnings.warn = warn
 """ ###################  ALGORITHM PARAMETERS #####################"""
 # choose testing datset you want: ext or internal
 testing_dataset = 'EXTERNAL'  # 'EXTERNAL' or  'INTERNAL'
-features_type   = 'combined'  # 'radiomics'   'deep_learning'   'combined'
+features_type   = 'combined'  # 'radiomics'   'combined'
 
 if features_type == 'combined':
     req_num_rad_feats  = 'all'
@@ -158,9 +158,6 @@ for cross_val in range(0,5):
     elif features_type == 'radiomics':
         X_dev = bb_dev
         X_test = bb_tst
-    elif features_type == 'deep_learning':
-        X_dev = aa_dev
-        X_test = aa_tst
 
     y_dev  = y_dev_rad  # y_dev_rad   both are same vector
     y_test = y_test_rad #y_test_rad   y_test_dl both are same vector
@@ -226,7 +223,6 @@ for cross_val in range(0,5):
     plt.ylabel('True positive rate')
     plt.title('ROC curve - Slice LGE Predictions')
     plt.legend(loc='best')
-
 
     """ ######################################## Per-Patient Analysis ########################################"""
     # printing FN and TP for few thresholds
