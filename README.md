@@ -18,7 +18,9 @@ PUBLIC_radiomics_utilities.py: code to implement radiomics function needed by PU
 ### (3) Combined Radiomics/DeepLearning scripts
 PUBLIC_DL_rad_merge.py: code to train and test radiomics model or combined DL-radiomics model
 
-## Hyperparameters and Explanation of Code:
-lge_positive_cine_data_dummy_fname.mat is a matlab data file contianing a list of matrices; each represent the data matrix of one patient. The data matrix is of size num_slices x W x H x 2, where the last dimension contains two images: cine image and myocardium mask in this imgae
+## Hyperparameters and Data (not provided):
+(1) cine_data_dummy_fname.mat: matlab workspace/data file containing a list of matrices; one for each patient. The patient matrix is of size num_slices x W x H x 2, where the last dimension contains two images: cine image and myocardium mask in this imgae.
+
+
 
 
